@@ -9,7 +9,7 @@ package tp1;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -55,7 +55,7 @@ public class GestionListeTest{
         list.add(maillon2);
         log.info("Test of sum method, of class GestionListe");
         float result = list.sum();
-        Assert.assertEquals(45.0, result, 0);
+        assertEquals(45.0, result, 0);
     }
     
 }
