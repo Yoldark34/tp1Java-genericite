@@ -8,22 +8,24 @@ package tp1;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author Admin
  */
-public class mainTest {
+public class GestionListeTest{
+    private GestionListe list;
     
-    public mainTest() {
+    public GestionListeTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
+        
     }
     
     @AfterClass
@@ -32,20 +34,26 @@ public class mainTest {
     
     @Before
     public void setUp() {
+        list = new GestionListe();
+        Maillon maillon = new Maillon();
+        maillon.setValue((float)15);
+        list.add(maillon);
+        Maillon maillon2 = new Maillon();
+        maillon2.setValue((float)30);
+        list.add(maillon2);
     }
     
     @After
     public void tearDown() {
     }
-
+    
     /**
-     * Test of main method, of class main.
+     * Test of sum method, of class GestionListe.
      */
     @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        main.main(args);
+    public void sum() {
+        float result = list.sum();
+        Assert.assertEquals(45.0, result, 0);
     }
     
 }
