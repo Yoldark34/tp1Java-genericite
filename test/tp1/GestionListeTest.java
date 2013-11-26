@@ -6,6 +6,7 @@
 
 package tp1;
 
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -18,6 +19,7 @@ import org.junit.Test;
  * @author Admin
  */
 public class GestionListeTest{
+    private static final Logger log = Logger.getLogger(GestionListe.class.getName());
     private GestionListe list;
     
     public GestionListeTest() {
@@ -25,7 +27,6 @@ public class GestionListeTest{
     
     @BeforeClass
     public static void setUpClass() {
-        
     }
     
     @AfterClass
@@ -34,13 +35,6 @@ public class GestionListeTest{
     
     @Before
     public void setUp() {
-        list = new GestionListe();
-        Maillon maillon = new Maillon();
-        maillon.setValue((float)15);
-        list.add(maillon);
-        Maillon maillon2 = new Maillon();
-        maillon2.setValue((float)30);
-        list.add(maillon2);
     }
     
     @After
@@ -52,6 +46,14 @@ public class GestionListeTest{
      */
     @Test
     public void sum() {
+        list = new GestionListe();
+        Maillon maillon = new Maillon();
+        maillon.setValue((float)15);
+        list.add(maillon);
+        Maillon maillon2 = new Maillon();
+        maillon2.setValue((float)30);
+        list.add(maillon2);
+        log.info("Test of sum method, of class GestionListe");
         float result = list.sum();
         Assert.assertEquals(45.0, result, 0);
     }
